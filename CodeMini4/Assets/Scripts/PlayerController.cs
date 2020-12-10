@@ -56,10 +56,9 @@ public class PlayerController : MonoBehaviour
     }
     void JumpPlayer()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && Maxjump == 0)
         {
-            Debug.Log("TEST");
-            PlayerRb.AddForce(Vector3.up * 7, ForceMode.Impulse);
+            PlayerRb.AddForce(Vector3.up * 5, ForceMode.Impulse);
             PlayerAni.SetTrigger("Jumping");
             Maxjump++;
         }
