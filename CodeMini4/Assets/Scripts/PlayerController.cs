@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    float gravityMod = 5f;
     float Maxjump = 1f;
 
     public Animator PlayerAni;
@@ -13,7 +12,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -58,9 +56,10 @@ public class PlayerController : MonoBehaviour
     }
     void JumpPlayer()
     {
-        if (Input.GetKey(KeyCode.Space) && Maxjump == 0)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            PlayerRb.AddForce(Vector3.up * gravityMod, ForceMode.Impulse);
+            Debug.Log("TEST");
+            PlayerRb.AddForce(Vector3.up * 7, ForceMode.Impulse);
             PlayerAni.SetTrigger("Jumping");
             Maxjump++;
         }
